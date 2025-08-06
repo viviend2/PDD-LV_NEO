@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Website</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main content styles */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Your Logo</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Temps restant avant le départ de Firas</h1>
+            <h1><div id="countdown"></div></h1>
+			  <div id="message"><p> Firas va partir! Ne tardez plus, participez à la cagnotte (voir ci-dessous)</p></div>
+			</div>
+
+			<script>
+			// Set the date we're counting down to
+			const countDownDate = new Date("Aug 25, 2025 18:00:00 GMT+0200").getTime();
+
+			// Get the countdown element
+			const countdownElement = document.getElementById("countdown");
+			const messageElement = document.getElementById("message");
+
+			function updateCountdown() {
+			  // Get today's date and time
+			  const now = new Date().getTime();
+
+			  // Find the distance between now and the count down date
+			  const distance = countDownDate - now;
+
+			  // Time calculations for days, hours, minutes and seconds
+			  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			  // Display the result in the element with id="countdown"
+			  countdownElement.innerHTML = days + " jours " + hours + " heures "
+			  + minutes + " min " + seconds + " sec ";
+
+			  // If the count down is finished, write some text
+			  if (distance < 0) {
+				clearInterval(countdownInterval);
+				countdownElement.style.display = 'none'; // Hide the countdown
+				messageElement.style.display = 'block';  // Show the message
+			  }
+			}
+
+			// Update the countdown every 1 second
+			updateCountdown(); // Call it once immediately to avoid a delay
+			const countdownInterval = setInterval(updateCountdown, 1000);
+			</script> 
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h2>Lien vers la cagnotte</h2>
+                <p><li><a href="https://www.leetchi.com/fr/c/pdd-fbo-3509528?utm_source=copylink&utm_medium=social_sharing">MONEY</a></li></p>
+            </div>
+            <div class="feature-card">
+                <h2>Feature 2</h2>
+                <p>Description of your second amazing feature goes here.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Feature 3</h2>
+                <p>Description of your third amazing feature goes here.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
